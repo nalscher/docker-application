@@ -2,12 +2,12 @@ FROM alpine
 
 # Install needed library
 RUN apk add -v --update \
-    supervisor \
+#    supervisor \
     bash \
     zip \
     python \
     py-pip && \
-    mkdir -p /var/log/supervisor && \
+#    mkdir -p /var/log/supervisor && \
     pip install --upgrade awscli s3cmd && \
     apk -v --purge del py-pip && \
     rm /var/cache/apk/*
@@ -17,7 +17,7 @@ ENV APP_ROOT /var/www/html
 VOLUME $APP_ROOT
 WORKDIR $APP_ROOT
 
-ADD conf/supervisord.conf /etc/supervisord.conf
+# ADD conf/supervisord.conf /etc/supervisord.conf
 
 ADD start.sh /start.sh
 RUN chmod 755 /start.sh
