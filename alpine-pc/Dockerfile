@@ -1,5 +1,8 @@
 FROM alpine
 
+ENV PUID 1000
+ENV GUID 1000 
+
 # Install needed library
 RUN apk add -v --update \
 #    supervisor \
@@ -18,6 +21,9 @@ VOLUME $APP_ROOT
 WORKDIR $APP_ROOT
 
 # ADD conf/supervisord.conf /etc/supervisord.conf
+
+RUN addgroup -g $GUID www-data
+RUN adduser -D -S -h $APP_ROOT -s /sbin/nologin -G www-data -u $PUID www-data
 
 ADD start.sh /start.sh
 RUN chmod 755 /start.sh

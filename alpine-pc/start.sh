@@ -10,5 +10,8 @@ unzip app.zip
 # Remove Zip file
 rm app.zip
 
+# Chown
+chown -R ${PUID}:${GUID} ${APP_ROOT}
+
 # Start supervisord and services
-#exec /usr/bin/supervisord -n -c /etc/supervisord.conf
+exec /usr/bin/supervisord -n -c /etc/supervisord.conf
