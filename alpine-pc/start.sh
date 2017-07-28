@@ -14,4 +14,4 @@ rm app.zip
 chown -R ${PUID}:${GUID} ${APP_ROOT}
 
 # Start supervisord and services
-exec /usr/bin/supervisord -n -c /etc/supervisord.conf
+#exec /usr/bin/supervisord -n -c /etc/supervisord.conf
