@@ -10,7 +10,9 @@ unzip app.zip
 # Remove Zip file
 rm app.zip
 
-# Chown
+# Change GUID et PUID
+addgroup -g $GUID app
+adduser -D -S -h $APP_ROOT -s /sbin/nologin -G app -u $PUID app
 chown -R ${PUID}:${GUID} ${APP_ROOT}
 
 # Start supervisord and services
