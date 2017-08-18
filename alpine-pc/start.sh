@@ -5,7 +5,7 @@ cd ${APP_ROOT}
 aws s3api get-object --bucket ${AWS_S3_BUCKET} --key ${AWS_S3_KEY} app.zip
 
 # Unzip app
-unzip app.zip
+unzip -q app.zip
 
 # Remove Zip file
 rm app.zip
