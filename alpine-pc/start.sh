@@ -22,4 +22,4 @@ chown -R ${PUID}:${GUID} ${APP_ROOT}
 #exec /usr/bin/supervisord -n -c /etc/supervisord.conf
 
 # Tail the log file
-tail --retry -f storage/logs/app.log
+tail -f storage/logs/app.log
